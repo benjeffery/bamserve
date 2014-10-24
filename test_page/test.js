@@ -12,12 +12,14 @@ require.config({
 
 require(["jquery", "ArrayBufferClient"],
     function ($, ArrayBufferClient) {
-    ArrayBufferClient.request('http://localhost:8000/bam',
-        function(data) {
-            console.log(data);
-        },
-        function() {
-                    console.log('error');
-        }
-    );
+    setInterval(function (){
+        ArrayBufferClient.request('http://localhost:8000/bam/test/PH0745_C/0/1000',
+            function(data) {
+                console.log(data);
+            },
+            function() {
+                console.log('error');
+            }
+        );
+    },1000);
 });
