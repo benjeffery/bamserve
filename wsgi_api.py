@@ -16,7 +16,7 @@ def return_404(start_response):
 def application(request, start_response):
     #TODO Could allow listing of files
     try:
-        bam, set, bam_id, start, end = request['PATH_INFO'].split('/')[1:]
+        bam, set, bam_id, chrom, start, end = request['PATH_INFO'].split('/')[1:]
         start, end = int(start), int(end)
     except ValueError:
         return_404(start_response)
@@ -37,7 +37,7 @@ def application(request, start_response):
         return_404(start_response)
         return
 
-    result_set = bamread.fetch(bam_file, start, end)
+    result_set = bamread.fetch(bam_file, chrom, start, end)
     data = gzip(data=''.join(arraybuffer.encode_array_set(result_set)))
     status = '200 OK'
     response_headers = [('Access-Control-Allow-Origin', '*'),
