@@ -18,6 +18,7 @@ def application(request, start_response):
     try:
         bam, set, bam_id, chrom, start, end = request['PATH_INFO'].split('/')[1:]
         start, end = int(start), int(end)
+        start = max(0, start)
     except ValueError:
         return_404(start_response)
         return
