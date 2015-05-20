@@ -29,7 +29,7 @@ Then edit config.yaml to point to your bams, eg:
 Data can then be fetched from eg:
 http://localhost:8000/bam/my_bams/bam_1/chrom/0/1000
 
-A test webpage that can be opened in chrom is included but you'll need to edit the URL in test.js to point to your bam.
+The data is in packed binary format, an example test webpage that can be opened as a file is included but you'll need to edit the URL in test.js to point to your bam.
 
 
 
